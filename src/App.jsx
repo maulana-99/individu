@@ -1,25 +1,24 @@
-import { useState } from "react";
-import Header from "./component/Header";
-import Footer from "./component/Footer";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Pricing from "./pages/Pricing";
-import { featureData } from "./data/features";
+import Pricing from "./components/Pricing";
 
 const App = () => {
-  const [features] = useState(featureData);
-
   return (
     <>
-      <Header />
+      <BrowserRouter>
+        <Header />
 
-      <main>
-        <Home features={features} />
-        {/* <About />
-        <Pricing /> */}
-      </main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </BrowserRouter>
     </>
   );
 };
