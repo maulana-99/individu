@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-import hero from "../components/Hero";
+
 
 function Home() {
   return (

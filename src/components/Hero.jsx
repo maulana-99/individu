@@ -1,21 +1,23 @@
-import { useState } from 'react'
+import { useLokalStorageState } from "../hooks/useLokalStorageState";
 
 function Hero() {
-    const [angka, setAngka] = useState(0);
-
+    const [angka, setAngka] = useLokalStorageState("angka", 0);
 
     return (
-        <section className="bg-gray-100 py-10">
-            <div className="container mx-auto">
-                <h1 className="text-3xl font-bold">Solusi Terbaik Untuk Bisnis Anda</h1>
-                <p className="text-gray-600">Platform All in one untuk management</p>
-                <button
-                    onClick={() => setAngka(angka + 1)}
-                    className="bg-blue-500 text-white py-2 px-4 rounded"
-                >
-                    Klik button ini: {angka}
-                </button>
-            </div>
+        <section className="bg-slate-50 py-20 px-8 text-center">
+            <h1 className="text-5xl font-extrabold text-slate-900 mb-6">
+                Solusi Terbaik untuk Bisnismu
+            </h1>
+
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+                Platform all-in-one untuk manajemen, pemasaran, dan pertumbuhan bisnis kecil.
+            </p>
+
+            <button
+                className="bg-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-pink-900 transition"
+                onClick={() => setAngka(angka + 1)}>
+                Klik button ini : {angka}
+            </button>
         </section>
     );
 }
